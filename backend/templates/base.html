@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        {% block title %}
-        AI SIEM Assistant
-        {% endblock %}
-    </title>
+    <title>{{ page_title|default:"AI SIEM Assistant" }}</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awesome -->
@@ -29,89 +25,12 @@
 
 <div class="flex min-h-screen">
 
-    <!-- Sidebar -->
-    <aside class="w-64 bg-slate-900 text-white flex flex-col">
+    {% include "includes/sidebar.html" %}
 
-        <!-- Logo -->
-        <div class="h-16 flex items-center justify-center border-b border-slate-700">
-            <h1 class="text-xl font-bold">
-                AI SIEM
-            </h1>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="flex-1 py-4">
-
-            <a href="/dashboard/" class="flex items-center gap-3 px-6 py-3 hover:bg-slate-800 transition">
-                <i class="fas fa-chart-line"></i>
-                <span>Dashboard</span>
-            </a>
-
-            <a href="#" class="flex items-center gap-3 px-6 py-3 hover:bg-slate-800 transition">
-                <i class="fas fa-file-alt"></i>
-                <span>Logs</span>
-            </a>
-
-            <a href="#" class="flex items-center gap-3 px-6 py-3 hover:bg-slate-800 transition">
-                <i class="fas fa-triangle-exclamation"></i>
-                <span>Alerts</span>
-            </a>
-
-            <a href="#" class="flex items-center gap-3 px-6 py-3 hover:bg-slate-800 transition">
-                <i class="fas fa-shield-halved"></i>
-                <span>Incidents</span>
-            </a>
-
-            <a href="#" class="flex items-center gap-3 px-6 py-3 hover:bg-slate-800 transition">
-                <i class="fas fa-file-pdf"></i>
-                <span>Reports</span>
-            </a>
-
-            <a href="#" class="flex items-center gap-3 px-6 py-3 hover:bg-slate-800 transition">
-                <i class="fas fa-robot"></i>
-                <span>AI Assistant</span>
-            </a>
-
-        </nav>
-
-    </aside>
-
-    <!-- Main Content -->
     <div class="flex-1 flex flex-col">
 
-        <!-- Navbar -->
-        <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6">
+        {% include "includes/navbar.html" %}
 
-            <h2 class="text-lg font-semibold">
-                {% block page_title %}
-                Dashboard
-                {% endblock %}
-            </h2>
-
-            <div class="flex items-center gap-5">
-
-                <button class="text-gray-600 hover:text-blue-600">
-                    <i class="fas fa-bell text-lg"></i>
-                </button>
-
-                <div class="flex items-center gap-3">
-
-                    <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center">
-                        A
-                    </div>
-
-                    <div>
-                        <p class="text-sm font-semibold">Admin</p>
-                        <p class="text-xs text-gray-500">SOC Analyst</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </header>
-
-        <!-- Main Section -->
         <main class="flex-1 p-6">
 
             {% block content %}
@@ -123,7 +42,6 @@
 
 </div>
 
-<!-- Custom JS -->
 <script src="{% static 'js/main.js' %}"></script>
 
 {% block scripts %}
